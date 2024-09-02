@@ -1,0 +1,9 @@
+#include <vector>
+
+std::vector<int> increaseVector(const std::vector<int>& inputVector, int n) {
+  std::vector<int> resultVector = inputVector;
+  for (size_t i = 0; i < resultVector.size(); ++i) {
+    resultVector[i] += n;
+  }
+  return resultVector;
+}
