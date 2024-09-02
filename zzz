@@ -7,3 +7,30 @@ std::vector<int> increaseVector(const std::vector<int>& inputVector, int n) {
   }
   return resultVector;
 }
+
+#include "gtest/gtest.h"
+#include "increase_vector.cpp"
+
+TEST(IncreaseVectorTest, EmptyVector) {
+  std::vector<int> emptyVector;
+  std::vector<int> expectedEmptyVector;
+  ASSERT_EQ(increaseVector(emptyVector, 5), expectedEmptyVector);
+}
+
+TEST(IncreaseVectorTest, PositiveIncrease) {
+  std::vector<int> inputVector = {1, 2, 3, 4};
+  std::vector<int> expectedVector = {6, 7, 8, 9};
+  ASSERT_EQ(increaseVector(inputVector, 5), expectedVector);
+}
+
+TEST(IncreaseVectorTest, NegativeIncrease) {
+  std::vector<int> inputVector = {1, 2, 3, 4};
+  std::vector<int> expectedVector = {-3, -2, -1, 0};
+  ASSERT_EQ(increaseVector(inputVector, -5), expectedVector);
+}
+
+TEST(IncreaseVectorTest, ZeroIncrease) {
+  std::vector<int> inputVector = {1, 2, 3, 4};
+  std::vector<int> expectedVector = {1, 2, 3, 4};
+  ASSERT_EQ(increaseVector(inputVector, 0), expectedVector);
+}  
